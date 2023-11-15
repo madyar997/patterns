@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package="/protobuf";
+
+message SmsRequest {
+  string from = 1;
+  string to = 2;
+  string text = 3;
+}
+
+message SmsResponse {
+  string status = 1;
+}
+
+service SmsNotifier {
+  rpc Send(SmsRequest) returns (SmsResponse);
+}
+
